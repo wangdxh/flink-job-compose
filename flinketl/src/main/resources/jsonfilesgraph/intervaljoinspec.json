@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "leftkeyselector": {
+      "type": "string"
+    },
+    "rightkeyselector": {
+      "type": "string"
+    },
+    "lowerbound": {
+      "type": "integer",
+      "default": -5000,
+      "description": "lower bound, unit is milliseconds"
+    },
+    "upperbound": {
+      "type": "integer",
+      "default": 5000,
+      "description": "lower bound, unit is milliseconds"
+    }
+  },
+  "required": ["leftkeyselector", "rightkeyselector"]
+}

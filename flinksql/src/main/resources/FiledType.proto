@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_package = "com.kedacom.bean.protoc";
+
+message FiledType {
+    int32 i32 = 1;
+    int64 i64 = 2;
+    sint32 si32 = 3;
+    sint64 si64 = 4;
+    sfixed32 sf32 = 5;
+    sfixed64 sf64 = 6;
+    float f = 7;
+    double d = 8;
+    bool bl = 9;
+    uint32 ui32 = 10;
+    uint64 ui64 = 11;
+    fixed32 fi32 = 12;
+    fixed64 fi64 = 13;
+    repeated string sg = 14;
+    bytes bs = 15;
+    Enums enums = 16;
+    repeated Person person = 17;
+    int64 createTime = 19;
+
+    enum Enums {
+        ONLINE = 0;
+        OFFLINE = 1;
+    }
+
+    message Person {
+        string name = 1;
+        int32 age = 2;
+    }
+
+
+}

@@ -1,0 +1,14 @@
+{
+  "sqlconfig": {
+    "parallel": 1,
+    "jobname": "KafkaWithUdf2",
+    "chkpointcfg": {
+      "enable": true
+    },
+    "dependjarpaths": [
+      "file:///F:/temp/flinksqludf-1.0.jar",
+      "file:///F:/temp/flink-sql-udf-2-1.0.jar"
+    ]
+  },
+  "sqlfilepath": "E:/bigdata/flinketl/flinksql/src/main/resources/examples/kafkaprintwithudf2.sql"
+}

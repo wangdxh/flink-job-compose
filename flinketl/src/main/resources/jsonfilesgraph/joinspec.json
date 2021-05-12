@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "leftkeyselector": {
+      "type": "string"
+    },
+    "rightkeyselector": {
+      "type": "string"
+    },
+    "windowinfo": {
+      "type": "object",
+      "properties": {
+        "windowtype": {
+          "type": "string",
+          "default": "SLIDING",
+          "enum": ["TUMBLING", "SLIDING"]
+        },
+        "size": {
+          "type": "integer",
+          "default": 0,
+          "description": "unit is millisecond"
+        },
+        "slide": {
+          "type": "integer",
+          "default": 0,
+          "description": "unit is millisecond just in sliding"
+        },
+        "offset": {
+          "type": "integer",
+          "default": 0,
+          "description": "unit is millisecond"
+        },
+        "allowedLateness": {
+          "type": "integer",
+          "default": 0,
+          "description": "unit is millisecond"
+        }
+      }
+    }
+  },
+  "required": ["leftkeyselector", "rightkeyselector"]
+}

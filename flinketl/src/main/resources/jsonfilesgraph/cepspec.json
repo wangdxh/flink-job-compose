@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "keyselector": {
+      "type": "string"
+    },
+    "withintime": {
+      "type": "integer",
+      "default": 0,
+      "description": "within, unit is milliseconds"
+    },
+    "skipstrategy": {
+      "type": "string",
+      "description": "AfterMatchSkipStrategy mode",
+      "enum": ["NOSKIP", "SKIPPASTLASTEVENT", "SKIPTONEXT", "SKIPTOFIRST", "SKIPTOLAST"]
+    },
+    "patternsequence": {
+      "type": "string",
+      "description": "pattern sequence defined use the my pattern seq ruler"
+    },
+    "patternexps":{
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name":{
+            "type": "string",
+            "description": "pattern name"
+          },
+          "aviatorexpress": {
+            "type": "string",
+            "description": "pattern aviator express"
+          }
+        },
+        "required": ["name", "aviatorexpress"]
+      }
+    }
+  },
+  "required": ["patternlist", "keyselector", "patternsequence"]
+}

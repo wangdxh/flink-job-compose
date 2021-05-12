@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "sqlconfig": {
+      "type": "object",
+      "description": "sqlconfig配置",
+      "properties": {
+        "parallel": {
+          "type": "integer",
+          "description": "flink job的并行度",
+          "minimum": 1
+        },
+        "jobname": {
+          "type": "string",
+          "description": "job的名称"
+        },
+        "attempts": {
+          "type": "integer",
+          "default": 2147483647,
+          "description": "job重启次数"
+        },
+        "chkpointcfg": {
+          "type": "object",
+          "description": "checkpoint的配置",
+          "properties": {
+            "enable": {
+              "type": "boolean",
+              "default": true,
+              "description": "是否开启checkpoint"
+            },
+            "interval": {
+              "type": "integer",
+              "default": 120,
+              "description": "checkpoint 时间间隔"
+            },
+            "timeout": {
+              "type": "integer",
+              "default": 600,
+              "description": "checkpoint 超时时间"
+            },
+            "exactlyonce": {
+              "type": "boolean",
+              "default": true,
+              "description": "数据处理模式是否是精确一次，false表示至少一次"
+            }
+          }
+        },
+        "dependjarpaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "jar包路径"
+        }
+      },
+      "required": [
+        "parallel",
+        "jobname",
+        "chkpointcfg"
+      ]
+    },
+    "sqlcontent": {
+      "type": "string",
+      "description": "sql内容"
+    },
+    "sqlfilepath": {
+      "type": "string",
+      "description": "sql文件路径"
+    }
+  },
+  "required": [
+    "sqlconfig"
+  ]
+}

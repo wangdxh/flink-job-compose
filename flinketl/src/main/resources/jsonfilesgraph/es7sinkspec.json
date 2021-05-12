@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "hosts": {
+      "type": "string",
+      "description": "127.0.0.1:9200,192.168.1.2:9202"
+    },
+    "batchnums":{
+      "type": "integer",
+      "default": 1000
+    },
+    "flushinterval": {
+      "type": "integer",
+      "default": 1000,
+      "description": "timeunit is milliseconds, when this set batchnums will not working"
+    },
+    "throwesexception": {
+      "type": "boolean",
+      "default": true,
+      "description": "when u debug es, this is true, after debugging set this to false"
+    },
+    "retries": {
+      "type": "integer",
+      "default": 3,
+      "description": "es request retry times"
+    }
+  },
+  "required": ["hosts"]
+}

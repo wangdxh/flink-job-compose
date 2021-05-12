@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "groovyfilepath": {
+      "type": "string"
+    },
+    "groovyfilecontent": {
+      "type": "string"
+    },
+    "throwgroovyexception": {
+      "type": "boolean",
+      "default": true,
+      "description": "when u debug groovyfile, this is true, after debugging set this to false"
+    },
+    "sideouttags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "outputportindex": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "tagname": {
+            "type": "string"
+          }
+        },
+        "required": ["tagname", "outputportindex"]
+      }
+    }
+  },
+  "required": ["sideouttags"]
+}

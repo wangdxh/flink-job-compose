@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "splitstr": {
+      "type": "string",
+      "default":",",
+      "description": "the separator among cells within line, default value: half angle comma"
+    },
+    "columninfo": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "colindex": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "the index of element within line, starting from 0"
+          },
+          "colname": {
+            "type": "string",
+            "description": "column name of element within line, used to construct a map object"
+          },
+          "coltype":{
+            "type": "string",
+            "enum": ["STRING", "LONG", "INTEGER", "FLOAT"],
+            "description": "the data type of element, support String, Long, Integer, Float"
+          }
+        },
+        "required": ["colindex", "colname", "coltype"]
+      }
+    }
+  },
+  "required": ["columninfo"]
+}

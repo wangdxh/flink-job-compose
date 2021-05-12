@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "elementname": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    },
+    "elementtype": {
+      "type": "string",
+      "description": "service | job | algorithm  | complexalgorithm"
+    },
+    "enginetype": {
+      "type": "string",
+      "description": "flink | rest"
+    },
+    "enginecaptype": {
+      "type": "string",
+      "description": "source | transform | sink"
+    },
+    "elementconfigschema": {
+      "type": "Object",
+      "description": "配置的元数据信息"
+    },
+    "portinfos":{
+      "type": "object",
+      "properties": {
+        "inputport": {
+          "$ref": "elementportslist.json"
+        },
+        "outputport": {
+          "$ref": "elementportslist.json"
+          }
+        }
+      }
+    }
+
+  }
+}

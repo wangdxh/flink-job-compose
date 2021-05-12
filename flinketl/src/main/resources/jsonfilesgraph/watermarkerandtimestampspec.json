@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "timetype": {
+      "type": "string",
+      "default": "PROCESSTIME",
+      "description": "the type of the flink system, default is process time, most is event time",
+      "enum": [
+        "EVENTTIME",
+        "PROCESSTIME"
+      ]
+    },
+    "watermarkinterval": {
+      "type": "integer",
+      "default": 0,
+      "description": "Periodic Watermarks default is 0, when event time should set bigger than 0 "
+    },
+    "boundedoutoforderness": {
+      "type": "object",
+      "properties": {
+        "maxoutoforderness": {
+          "type": "integer",
+          "description": "max outof orderness unit is mill seconds",
+          "default": 100
+        },
+        "extracttimestamp": {
+          "type": "string",
+          "description": "extracetimestamp from map object, this is the key name"
+        }
+      }
+    }
+  }
+}

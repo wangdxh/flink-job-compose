@@ -1,0 +1,108 @@
+{
+  "graphconfig": {
+    "parallel": 1,
+    "jobname": "connectloop2",
+    "chkpointcfg": {
+      "enable": false
+    }
+  },
+  "nodes": [
+    {
+      "nodeid": "1",
+      "elementname": "flinksource_filelines",
+      "elementconfig": {
+        "filepath": "D:/wikiticker20150912sampled.json"
+      }
+    },
+    {
+      "nodeid": "2",
+      "elementname": "flinktransform_jsontomap",
+      "elementconfig": {
+      }
+    },
+    {
+      "nodeid": "3",
+      "elementname": "flinktransform_connect",
+      "elementconfig": {
+      }
+    },
+    {
+      "nodeid": "4",
+      "elementname": "flinktransform_groovy",
+      "elementconfig": {
+        "groovyfilepath": "E:/bigdata/flinketl/flinketljob/src/jobexamples/connectlooptest.groovy",
+        "throwgroovyexception": true
+      }
+    },
+    {
+      "nodeid": "5",
+      "elementname": "flinktransform_groovy",
+      "elementconfig": {
+        "groovyfilepath": "E:/bigdata/flinketl/flinketljob/src/jobexamples/connectlooptest.groovy",
+        "throwgroovyexception": true
+      }
+    }
+  ],
+  "links": [
+    {
+      "sourcenode": {
+        "nodeid": "1",
+        "portindex": 0,
+        "portselectedtype": "string"
+      },
+      "destnode": {
+        "nodeid": "2",
+        "portindex": 0,
+        "portselectedtype": "string"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "2",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      },
+      "destnode": {
+        "nodeid": "3",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "3",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      },
+      "destnode": {
+        "nodeid": "4",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "4",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      },
+      "destnode": {
+        "nodeid": "5",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "5",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      },
+      "destnode": {
+        "nodeid": "3",
+        "portindex": 1,
+        "portselectedtype": "mapobject"
+      }
+    }
+  ]
+}

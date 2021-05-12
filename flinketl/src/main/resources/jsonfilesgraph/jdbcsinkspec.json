@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "jdbcurl": {
+      "type": "string",
+      "description": "jdbc:mysql://localhost:3306/testdb?useUnicode=true&characterEncoding=UTF-8"
+    },
+    "dbusername": {
+      "type": "string",
+      "default": "root"
+    },
+    "dbpassword": {
+      "type": "string",
+      "default": "kedacom"
+    },
+    "insertsql": {
+      "type": "string",
+      "description": "insert into testtable(testtime, testcomment) values (?, ?);"
+    },
+    "batchnums":{
+      "type": "integer",
+      "default": 1000
+    }
+  },
+  "required": ["jdbcurl", "insertsql"]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "nodeid": {
+      "type": "string",
+      "minLength": 1
+    },
+    "portindex": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "portselectedtype": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": ["nodeid", "portindex", "portselectedtype"]
+}

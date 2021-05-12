@@ -1,0 +1,2 @@
+com.kedacom.flinksql.table.RedisDynamicTableSourceFactory
+com.kedacom.flinksql.format.protobuf.ProtobufFormatFactory

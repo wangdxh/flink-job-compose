@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "index": {
+      "type": "integer",
+      "description": "port index",
+      "minimum": 0
+    },
+    "supporttypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "portname": {
+      "type": "string",
+      "description": "port 的名称，用于显示在界面上"
+    },
+    "portdesc": {
+      "type": "string",
+      "description": "port 的描述信息"
+    }
+  }
+}

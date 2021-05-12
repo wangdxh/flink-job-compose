@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "redishost": {
+      "type": "string",
+      "description": "127.0.0.1"
+    },
+    "redisport": {
+      "type": "integer",
+      "default": 6379
+    },
+    "dbindex": {
+      "type": "integer",
+      "default": 0
+    },
+    "password": {
+      "type": "string",
+      "default": ""
+    },
+    "cluster": {
+      "type": "string",
+      "description": "now not support cluster mode"
+    },
+    "valuecodec":{
+      "type": "string",
+      "default":"STRING",
+      "description": "the codec of value",
+      "enum": ["STRING", "BYTEARRAY"]
+    }
+  },
+  "required": ["redishost"]
+}

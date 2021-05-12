@@ -1,0 +1,107 @@
+{
+  "graphconfig": {
+    "parallel": 1,
+    "jobname": "filelinestest",
+    "chkpointcfg": {
+      "enable": false
+    }
+  },
+  "nodes": [
+    {
+      "nodeid": "1",
+      "elementname": "flinksource_filelines",
+      "elementconfig": {
+        "filepath": "/Users/wang/Desktop/bigdata/wikiticker-2015-09-12-sampled.json"
+      }
+    },
+    {
+      "nodeid": "2",
+      "elementname": "flinktransform_jsontomap",
+      "elementconfig": {
+        "parallel": 2
+      }
+    },
+    {
+      "nodeid": "3",
+      "elementname": "flinktransform_sideout",
+      "elementconfig": {
+        "parallel": 1,
+        "groovyfilepath": "/Users/wang/Desktop/GitHub/flinketl/flinketljob/src/jobexamples/filelinessideout.groovy",
+        "sideouttags": [
+          {
+            "outputportindex": 0,
+            "tagname": "test1"
+          },
+          {
+            "outputportindex": 1,
+            "tagname": "test2"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "4",
+      "elementname": "flinksink_print",
+      "elementconfig": {
+        "parallel": 1
+      }
+    },
+    {
+      "nodeid": "5",
+      "elementname": "flinksink_print",
+      "elementconfig": {
+        "parallel": 1
+      }
+    }
+  ],
+  "links": [
+    {
+      "sourcenode": {
+        "nodeid": "1",
+        "portindex": 0,
+        "portselectedtype": "string"
+      },
+      "destnode": {
+        "nodeid": "2",
+        "portindex": 0,
+        "portselectedtype": "string"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "2",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      },
+      "destnode": {
+        "nodeid": "3",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "3",
+        "portindex": 0,
+        "portselectedtype": "string"
+      },
+      "destnode": {
+        "nodeid": "5",
+        "portindex": 0,
+        "portselectedtype": "string"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "3",
+        "portindex": 1,
+        "portselectedtype": "string"
+      },
+      "destnode": {
+        "nodeid": "4",
+        "portindex": 0,
+        "portselectedtype": "string"
+      }
+    }
+  ]
+}

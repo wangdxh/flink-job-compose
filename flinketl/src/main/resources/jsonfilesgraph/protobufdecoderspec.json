@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "topictoprotojavaclass": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topicname": {
+            "type": "string"
+          },
+          "protojavaclassname": {
+            "type": "string",
+            "description": "protobuf message java classname"
+          }
+        },
+        "required": [
+          "topicname",
+          "protojavaclassname"
+        ]
+      }
+    }
+  },
+  "required": [
+    "topictoprotojavaclass"
+  ]
+}

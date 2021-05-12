@@ -1,0 +1,70 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"parallel": {
+			"type": "integer",
+			"description": "独立配置算子的并发度",
+			"default": 0
+		},
+		"basedirectory": {
+			"type": "string",
+			"description": "the top directory contained target files."
+		},
+		"filterrule": {
+			"type": "string",
+			"default":"*",
+			"description": "filename wildcard character. this config can be null"
+		},
+		"delete":{
+			"type":"boolean",
+			"default":false,
+			"description": "whether deletes file processed; default value false, don't delete it."
+		},
+		"contenttype": {
+			"type": "string",
+			"default":"LINES",
+			"description": "the type of file content has tow kinds, lines and structs. ",
+			"enum": ["LINES", "STRUCTS"]
+		},
+		"linefileconfig":{
+			"type":"object",
+			"description": "some configs about processing txtfile.",
+			"properties": {
+				"encoding": {
+					"type": "string",
+					"deafult":"utf-8",
+					"description": "file encoding, such as utf-8, GB2312 ... if content type is lines, it need this config; if contenttype is structs msg content needs this config"
+				},
+				"skiplinenums":{
+					"type": "integer",
+					"default": 0,
+					"description": "this config item will control the line number that filesystemcsourece operator will skip these lines when process this file the first time."
+				}
+			}
+		},
+		"structfileconfig":{
+			"type": "object",
+			"description": "some configs about struct byte files.",
+			"properties": {
+				"lengthbytes": {
+					"type": "integer",
+					"default":4,
+					"description": "support 2 or 4.only when contenttype is structs this item is needed; this config stands for the length of msg."
+				},
+				"endian": {
+					"type": "string",
+					"default":"BIG",
+					"enum": ["BIG", "LITTLE"],
+					"description": "endian mode, big, little, default value big-endian as well as jvm"
+				},
+				"msgsizelimit":{
+					"type": "integer",
+					"default":1048576,
+					"description": "the size limit of per msg, unit Byte. stop to process current file when finding one msg size great than msgsizelimit."
+				}
+			}
+		}
+	},
+	"required": ["basedirectory"]
+}

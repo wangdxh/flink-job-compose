@@ -1,0 +1,13 @@
+{
+  "sqlconfig": {
+    "parallel": 1,
+    "jobname": "kafkaprint",
+    "chkpointcfg": {
+      "enable": true
+    },
+    "dependjarpaths": [
+      "file:///F:/temp/flinksqludf-1.0.jar"
+    ]
+  },
+  "sqlfilepath": "E:/bigdata/flinketl/flinksql/src/main/resources/examples/kafkaprint.sql"
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "sourcenode": {
+      "$ref": "graphnodeport.json"
+    },
+    "destnode": {
+      "$ref": "graphnodeport.json"
+    }
+  },
+  "required": ["sourcenode", "destnode"]
+}

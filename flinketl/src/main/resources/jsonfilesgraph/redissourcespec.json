@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "redisinfo": {
+      "$ref": "redissinkspec.json"
+    },
+    "command":{
+      "type": "string",
+      "default":"",
+      "description": "supported redis commands: get, hget, hgetall",
+      "enum": ["GET", "HGET", "HGETALL"]
+    },
+    "rediskey":{
+      "type": "string",
+      "description": "required. this key stands for the primary KEY"
+    },
+    "additionalkey":{
+      "type": "string",
+      "description": "option"
+    },
+    "increment":{
+      "type": "integer",
+      "default":0,
+      "minimum":0,
+      "description": "the interval refresh the key value, seconds"
+    }
+  },
+  "required": ["redisinfo", "rediskey"]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "groovyfilepath": {
+      "type": "string"
+    },
+    "groovyfilecontent": {
+      "type": "string"
+    },
+    "throwgroovyexception": {
+      "type": "boolean",
+      "default": false,
+      "description": "when u debug groovyfile, this is true, after debugging set this to false"
+    }
+  }
+}

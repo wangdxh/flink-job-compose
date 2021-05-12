@@ -1,0 +1,162 @@
+{
+  "graphconfig": {
+    "parallel": 1,
+    "jobname": "sideout-connect-loop-test-4",
+    "chkpointcfg": {
+      "enable": true
+    }
+  },
+  "nodes": [
+    {
+      "nodeid": "a",
+      "elementname": "flinksource_filelines",
+      "elementconfig": {
+        "parallel": 1,
+        "filepath": "D:/wikiticker20150912sampled.json",
+        "linesinterval": 500
+      }
+    },
+    {
+      "nodeid": "b",
+      "elementname": "flinktransform_jsontomap",
+      "elementconfig": {
+      }
+    },
+    {
+      "nodeid": "c",
+      "elementname": "flinksource_filelines",
+      "elementconfig": {
+        "filepath": "D:/wikiticker20150912sampled.json",
+        "linesinterval": 500
+      }
+    },
+    {
+      "nodeid": "d",
+      "elementname": "flinktransform_jsontomap",
+      "elementconfig": {
+      }
+    },
+    {
+      "nodeid": "e",
+      "elementname": "flinktransform_sideout",
+      "elementconfig": {
+        "groovyfilepath": "E:/bigdata/flinketl/flinketljob/src/jobexamples/filelinessideout.groovy",
+        "throwgroovyexception": true,
+        "sideouttags": [
+          {
+            "outputportindex": 0,
+            "tagname": "test1"
+          },
+          {
+            "outputportindex": 1,
+            "tagname": "test2"
+          }
+        ]
+      }
+    },
+    {
+      "nodeid": "f",
+      "elementname": "flinksink_print",
+      "elementconfig": {
+      }
+    },
+    {
+      "nodeid": "g",
+      "elementname": "flinktransform_connect",
+      "elementconfig": {
+      }
+    },
+    {
+      "nodeid": "h",
+      "elementname": "flinksink_print",
+      "elementconfig": {
+      }
+    }
+  ],
+  "links": [
+    {
+      "sourcenode": {
+        "nodeid": "a",
+        "portindex": 0,
+        "portselectedtype": "string"
+      },
+      "destnode": {
+        "nodeid": "b",
+        "portindex": 0,
+        "portselectedtype": "string"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "c",
+        "portindex": 0,
+        "portselectedtype": "string"
+      },
+      "destnode": {
+        "nodeid": "d",
+        "portindex": 0,
+        "portselectedtype": "string"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "b",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      },
+      "destnode": {
+        "nodeid": "e",
+        "portindex": 0,
+        "portselectedtype": "object"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "e",
+        "portindex": 0,
+        "portselectedtype": "object"
+      },
+      "destnode": {
+        "nodeid": "f",
+        "portindex": 0,
+        "portselectedtype": "object"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "e",
+        "portindex": 1,
+        "portselectedtype": "object"
+      },
+      "destnode": {
+        "nodeid": "g",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "d",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      },
+      "destnode": {
+        "nodeid": "g",
+        "portindex": 1,
+        "portselectedtype": "mapobject"
+      }
+    },
+    {
+      "sourcenode": {
+        "nodeid": "g",
+        "portindex": 0,
+        "portselectedtype": "mapobject"
+      },
+      "destnode": {
+        "nodeid": "h",
+        "portindex": 0,
+        "portselectedtype": "object"
+      }
+    }
+  ]
+}

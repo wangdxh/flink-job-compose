@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "nodeid": {
+      "type": "string",
+      "description": "node id 在graph 内 是唯一的",
+      "minLength": 1
+    },
+    "elementname": {
+      "type": "string",
+      "description": "对应的 算法element的名字"
+    },
+    "elementconfig": {
+      "type": "any",
+      "description": "每个算法element的详细配置"
+    },
+    "inputselectedtypes": {
+      "type": "array",
+      "items": {
+        "$ref": "graphnodeport.json"
+      }
+    },
+    "outputselectedtypes": {
+      "type": "array",
+      "items": {
+        "$ref": "graphnodeport.json"
+      }
+    }
+  },
+  "required": ["nodeid", "elementname", "elementconfig"]
+}

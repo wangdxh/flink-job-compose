@@ -1,0 +1,10 @@
+{
+  "sqlconfig": {
+    "parallel": 1,
+    "jobname": "kafkatoredis",
+    "chkpointcfg": {
+      "enable": true
+    }
+  },
+  "sqlfilepath": "E:/bigdata/flinketl/flinksql/src/main/resources/examples/kafkatoredis.sql"
+}

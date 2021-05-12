@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "parallel": {
+      "type": "integer",
+      "description": "独立配置算子的并发度",
+      "default": 0
+    },
+    "throwexception": {
+      "type": "boolean",
+      "default": true,
+      "description": "when u debug http, this is true, after debugging set this to false"
+    },
+    "redisinfo": {
+      "$ref": "redissinkspec.json"
+    }
+  }
+}
